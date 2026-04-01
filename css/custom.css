@@ -1,0 +1,172 @@
+/* ========================================
+   RPM MOTORSPORTS - CUSTOM STYLES
+   Theme: High-Performance & Speed
+   ======================================== */
+
+/* Root Variables */
+:root {
+    --primary-red: #ff0000;      /* لون السرعة والنيترو */
+    --nitro-glow: #ff4d4d;
+    --dark-bg: #0a0a0a;          /* أسود عميق */
+    --carbon-gray: #1a1a1a;      /* جراي كربوني */
+    --white: #ffffff;
+    --accent-orange: #f39c12;    /* للتحذيرات أو اللمسات الميكانيكية */
+    --glass-bg: rgba(20, 20, 20, 0.7);
+    --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Barlow', 'Montserrat', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--white);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Background Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, var(--dark-bg) 90%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Floating Red Dots (Nitro Particles) */
+
+@keyframes floatParticle {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+}
+
+
+
+.loader {
+    width: 80px;
+    height: 80px;
+    border: 4px solid var(--carbon-gray);
+    border-top: 4px solid var(--primary-red);
+    border-radius: 50%;
+    animation: tachometer 0.8s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes tachometer {
+    to { transform: rotate(360deg); }
+}
+
+/* Navbar - Sleek & Modern */
+.admin-navbar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 2px solid var(--primary-red);
+    padding: 10px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.rpm-logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    border: 2px solid var(--primary-red);
+    transform: skewX(-10deg); /* لمسة رياضية */
+    transition: var(--transition-fast);
+}
+
+.nav-link {
+    font-family: 'Orbitron', sans-serif; /* خط تقني */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding: 10px 20px !important;
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--primary-red) !important;
+    background: rgba(255, 0, 0, 0.05);
+    transform: skewX(-10deg);
+}
+
+.cart-badge {
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 900;
+    transform: skewX(-15deg);
+    box-shadow: 0 0 10px var(--primary-red);
+}
+
+/* Buttons - Turbo Style */
+.btn-rpm {
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); /* شكل مائل احترافي */
+    transition: var(--transition-fast);
+}
+
+.btn-rpm:hover {
+    background: var(--white);
+    color: var(--primary-red);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--primary-red);
+}
+
+/* Hero Section Text */
+.zigzag-text {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    color: var(--white);
+    text-shadow: 4px 4px 0px var(--primary-red);
+}
+
+/* Product Cards - Carbon Fiber Look */
+.garage-card {
+    background: var(--carbon-gray);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: var(--transition-fast);
+}
+
+.garage-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.2);
+}
+
+/* Utilities */
+.text-red { color: var(--primary-red) !important; }
+.bg-carbon { background-color: var(--carbon-gray) !important; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .zigzag-text {
+        font-size: 2.2rem;
+    }
+    
+    .btn-rpm {
+        padding: 12px 25px;
+        font-size: 0.8rem;
+    }
+}
